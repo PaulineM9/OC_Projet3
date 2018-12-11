@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8"/>
+        <link rel="stylesheet" href="stylesheet_loc_velo.css"/>
+        <!-- <link rel="icon" type="image/png" href=""/> -->
+        <title>VeloCityLyon, Location de vélo à Lyon</title>        
+        <meta name="viewport" content="width=device-width,initial-scale=1"/>
+        <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet"/>
+
+        	<!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Advent+Pro|Cabin+Sketch" rel="stylesheet">
+        
+	        <!-- Twitter Card data -->
+	    <meta name="twitter:card" content="summary_large_image"/>
+	    <meta name="twitter:creator" content="@popetmartin">
+	    
+			<!-- FB Open Graph data -->
+	    <meta property="og:title" content="VeloCityLyon, Location de vélo à Lyon"/>
+	    <meta property="og:type" content="website"/>
+	    <meta property="og:url" content="www.paulinemartin-portfolio.com"/>
+	    <meta property="og:image" content=""/>
+	    <meta property="og:description" content="VeloCityLyon, application de location en ligne de vélo à Lyon"/>
+
+	    <meta name="description" content="VeloCityLyon, application de location en ligne de vélo à Lyon" />
+	    <meta name="keywords" content="VeloCityLyon, application, velo, vélo, Lyon" />
+	    <meta name="author" content="PaulineM9" />
+
+	    	<!-- mapbox API -->
+	    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.46.0/mapbox-gl.js'></script>
+		<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.46.0/mapbox-gl.css' rel='stylesheet' />
+
+			<!-- Lealfet links -->
+		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
+		   integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+		   crossorigin=""/>
+		<script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"
+		   integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA=="
+		   crossorigin="">
+		</script>
+		<script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/leaflet.markercluster.js'></script>
+		<link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.css' rel='stylesheet' />
+		<link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.Default.css' rel='stylesheet' />
+
+		<style>
+		a {text-decoration:none;}
+		</style>
+	</head>
+
+	<body>
+		<header class="header" id="title_header">
+			<h1>VéloCityLyon</h1>
+			<h2>Le site de location de vélo en ligne de la ville de Lyon</h2>
+		</header>
+
+		<section id="slide_section">
+			<div class="slide_wrapper" id="slider">
+				<div class="slide active" id="velov_lyon1">
+					<p>Bienvenue sur VéloCityLyon.<br>
+					Suivez le guide pour réserver facilement votre vélo.</p>
+				</div>
+
+				<div class="slide" id="velov_lyon2">
+					<p>1. Choisissez votre station:<br>
+					cliquez sur un marqueur sur la carte pour voir s'afficher les infos de la station.</p>
+				</div>
+
+				<div class="slide" id="velov_lyon3">
+					<p>2. Validez votre réservation:<br>
+					signez dans le cadre et cliquez sur 'valider' ou sur 'effacer' pour annuler.</p>
+				</div>
+
+				<div class="slide" id="velov_lyon4">
+					<p>3. Votre réservation en cours:<br>
+					retrouvez toutes les informations de votre réservation.</p>
+				</div>
+			</div>
+			<div class="navigation" id="slide_nav">
+				<i id="nav_left" class="fas fa-caret-left"></i>
+				<i id="nav_pause" class="fas fa-pause"></i>
+				<i id="nav_right" class="fas fa-caret-right"></i>
+			</div>
+		</section>
+
+		<section class="search">
+			<div id="search_line">
+				<h1>Choisissez votre station</h1>
+			</div>
+		</section>	
+		
+		<section class="map_container">
+			<div id="map"></div>
+			<section class="map_container-infos">
+				<div id="resa_form">
+					<h1>Détails de la station sélectionnée</h1>
+				</div>
+
+				<div id="station_form">
+					<div id="info_station">
+						<span class="station">Status</span>
+						<span class="station">Nom</span>
+						<span class="station">Adresse</span>
+						<span class="station">Capacité <br>d'accueil</span>
+						<span class="station">Vélos <br>disponibles</span>
+					</div>
+
+					<div id="station_data">
+							<span id="station_status"></span>
+							<span id="station_name"></span>
+							<span id="station_address"></span>
+							<span id="station_freePlaces"></span>
+							<span id="station_freeBikes"></span>
+					</div>
+				
+				<div id="resa">
+					<button class="resa_confirm hidden" id="resa_confirm">Réserver</button>
+
+					<p class="alert_marker" id="alert_marker">Merci de choisir une station sur la carte pour effectuer une réservation.</p>
+					
+					<p class="alert_nofreeBikes hidden" id="alert_nofreeBikes">Il n'y a pas de vélo disponible à cette station.</p>
+
+					<div id="signature" class="resa_signature">
+						<div id="signature_resa">
+							<div id="resa_station">
+								<p>
+									<label for="perso_name">Votre nom *</label>
+									<input type="text" name="perso_name" id="perso_name" />
+								</p>
+								<p>
+									<label for="perso_firstname">Votre prénom *</label>
+									<input type="text" name="perso_firstname" id="perso_firstname" />
+								</p>
+
+								<span class="resa_station">Nom de la station</span>
+								<span class="resa_station">Adresse de la station</span>
+
+								<p id="alert_name">* Merci de renseigner vos noms et prenoms, et de signer dans le cadre pour effectuer votre 
+									réservation.</p>
+							</div>
+
+							<div id="resa_data">
+								<span id="name_resa"></span>
+								<span id="address_resa"></span>
+							</div>
+
+							<div class="buttons">
+								<button id="submit">Valider</button>
+								<button id="erase">Effacer</button>
+							</div>
+						
+							<canvas id="resa_canvas" height="200px" width="450px"></canvas>
+						</div>
+					</div>
+				</div>
+			</section>	
+		</section>
+		
+		<footer class="footer">
+			<h1>Votre réservation</h1>
+
+			<div id="station_title">
+				<div id="station">
+					<h2>Vous avez choisi la station</h2>
+					<p id="confirm_stationName"></p>
+					<p id="confirm_stationAddress"></p>
+				</div>
+
+				<div id="timer">
+					<h2>Durée de votre réservation</h2>
+					<p class="confirm_resa " id="confirm_resa"></p>
+					<!-- <p class="end_resa hidden" id="end_resa">Votre réservation à expiré.</p> -->
+					<button class="reset_resa" id="reset_resa">Annuler</button>
+					<!-- <p class="infos_reset hidden" id="infos_reset">Votre réservation a été annulée.</p> -->
+				</div>
+			</div>
+		</footer>
+
+		<script type="text/javascript" src="ajax.js"></script>
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+		<script type="text/javascript" src="slider.js"></script>
+		<script type="text/javascript" src="mapbox.js"></script>
+		<script type="text/javascript" src="resa.js"></script>
+		<script type="text/javascript" src="canvas.js"></script>
+		<script type="text/javascript" src="controler.js"></script>
+	</body>
+</html>

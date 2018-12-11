@@ -1,0 +1,521 @@
+/* OC PROJET 3: LOCATION DE VÉLO EN LIGNE */
+/* Reset CSS */ /* permet de supprimer toutes les données pré-définies en CSS et HTML */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+	box-sizing: border-box;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+html, body {
+	margin: 0;
+	padding: 0;
+}
+
+/* Colors:
+	rgb(78, 78, 78): grix foncé;
+	rgb(124, 124, 124): gris clair;
+	rgb(131, 250, 131): vert mint;
+	rgb(239, 90, 36): orange;
+*/
+ 		/* ---------- Header ---------------- */
+
+#title_header {
+	position: fixed; 
+ 		top: 0px;
+ 		left: 0px;
+ 	display: flex;
+ 	flex-direction: row;
+ 	justify-content: space-around;
+ 	background-color: white;
+ 	height: 120px;
+ 	width: 100%;
+ 	border-bottom: 4px dotted rgb(131, 250, 131);
+ 	z-index: 2;
+}
+
+#title_header h1 {
+	font-family: 'Cabin Sketch', cursive, Arial, Verdana, Times New Roman, serif;
+	font-size: 4em;
+	color: rgb(78, 78, 78);
+	padding-top: 22px;
+	padding-left: 50px;
+} 
+
+#title_header h2 {
+	font-family: 'Advent Pro', sans-serif, Arial, Verdana, Times New Roman, serif;
+	font-size: 1.5em;
+	color: rgb(239, 90, 36);
+	padding-top: 55px;
+}
+
+
+		/* ---------- Slide_section --------- */
+#slide_section {
+	width: 100%;
+	padding-top: 130px;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+.slide_wrapper {
+	width: 100%;
+	position: relative;
+}
+
+.slide {
+	position: absolute;
+  	width: 100%;
+  	height: 100%;
+  	opacity: 0;
+}
+
+.active {
+  opacity: 1;
+  transition: all 0.5s;
+}
+
+#velov_lyon1 {
+	height: 540px;
+	background: transparent url("images/velov_lyon1.jpg") no-repeat; 
+	background-size: cover;
+	box-shadow: 6px 6px 6px darkgrey;
+	border-radius: 3px;
+}
+
+#velov_lyon2 {
+	height: 540px;
+	background: transparent url("images/velov_lyon2.jpeg") no-repeat; 
+	background-size: cover;
+	box-shadow: 6px 6px 6px darkgrey;
+	border-radius: 3px;
+}
+
+#velov_lyon3 {
+	height: 540px;
+	background: transparent url("images/velov_lyon3.jpg") no-repeat; 
+	background-size: cover;
+	box-shadow: 6px 6px 6px darkgrey;
+	border-radius: 3px;
+}
+
+#velov_lyon4 {
+	height: 540px;
+	background: transparent url("images/velov_lyon4.jpg") no-repeat; 
+	background-size: cover;
+	box-shadow: 6px 6px 6px darkgrey;
+	border-radius: 3px;
+}
+
+.navigation {
+	font-family: 'Advent Pro', sans-serif, Arial, Verdana, Times New Roman, serif;
+	font-size: 1.5em;
+	color: rgb(239, 90, 36);
+	text-align: center;
+	position: relative;
+		top: 465px;
+}
+
+.navigation:hover {
+	font-size: 1.8em;
+}
+
+.slide p {
+	background-color: rgba(254, 254, 254, 0.7);
+	width: 700px;
+	height: 150px;
+	font-family: 'Advent Pro', sans-serif, Arial, Verdana, Times New Roman, serif;
+	font-size: 1.5em;
+	color: rgb(239, 90, 36);
+	border-radius: 3px;
+	box-shadow: 6px 6px 6px lightgrey;
+	text-align: center;
+	margin: 0px auto;
+	padding-top: 30px;
+	position: relative;
+		top: 350px;
+}
+
+		/* ---------- Search section -------- */
+.search {
+	margin-top: 580px;
+}
+
+#search_line {
+	display: flex;
+ 	flex-direction: row;
+ 	justify-content: center;
+	font-family: 'Cabin Sketch', cursive, Arial, Verdana, Times New Roman, serif;
+	font-size: 3em;
+	color: rgb(78, 78, 78);
+	background-color: white;
+	height: 100px;
+	padding-top: 30px;
+	border-bottom: 4px dotted rgb(131, 250, 131);
+}
+
+ 		/* ---------- Mapbox ---------------- */
+
+.map_container {
+ 	position: relative;
+ 	box-sizing: border-box;
+ 	display: flex;
+ 	justify-content: space-evenly;
+ 	padding-top: 25px;
+ }
+
+#map {
+	display: flex;
+	flex-direction: row;
+	height: 480px; 
+	width: 58%;
+	box-shadow: 6px 6px 6px lightgrey;
+	border-radius: 3px;
+	z-index: 1;
+}
+
+		/* --------- map_container-infos --------- */
+
+.map_container-infos {
+	position: relative;
+	background-color: lightgrey;
+	display: flex;
+	flex-direction: column;
+	font-family: 'Advent Pro', sans-serif, Arial, Verdana, Times New Roman, serif;
+	height: 480px; 
+	width: 38%;
+	box-shadow: 6px 6px 6px lightgrey;
+	border-radius: 3px;
+}
+
+#resa_form h1 {
+	color: rgb(239, 90, 36);
+	font-size: 1.5em;
+	text-align: center;
+	padding-top: 20px;
+}
+
+.search_station h1 {
+	color: rgb(239, 90, 36);
+	font-size: 1.5em;
+	text-align: center;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}	
+
+#station_form {
+	display: flex;
+	flex-direction: row;
+}
+ 
+#info_station {
+	display: flex;
+	flex-direction: column;
+	color: rgb(109, 110, 106);
+	font-size: 1.2em;
+	margin-left: 10px;
+	margin-top: 10px;
+	width: 110px;
+}
+
+.station {
+	margin-bottom: 30px;
+}
+
+#station_data {
+	display: flex;
+	flex-direction: column;
+	font-size: 1.2em;
+	color: rgb(124, 124, 124);
+	font-family: 'Advent Pro', sans-serif, Arial, Verdana, Times New Roman, serif;
+	margin-left: 20px;	
+}
+
+#station_data span {
+	width: 390px;
+	margin-top: 10px;
+}
+
+#station_status,
+#station_name {
+	margin-bottom: 20px;
+}
+
+#station_address {
+	margin-bottom: 30px;
+}
+
+#station_freePlaces {
+	margin-bottom: 40px;
+}
+
+.resa_confirm {
+	display: flex;
+	justify-content: center;
+	position: absolute;
+	left: 170px;
+	top: 350px;
+	margin: 20px auto;
+	padding-top: 10px;
+	height: 60px;
+	width: 160px;
+	background-color: white;
+	color: rgb(78, 78, 78);
+	font-family: 'Cabin Sketch', cursive, Arial, Verdana, Times New Roman, serif;
+	font-size: 1.8em;
+	border-radius: 6px;
+	border: 2px solid rgb(78, 78, 78);
+}
+
+.hidden {
+	display: none;
+}
+
+.resa_confirm:hover {
+	background-color: rgb(239, 90, 36);
+	color: rgb(131, 250, 131);
+}
+
+#alert_marker,
+#alert_nofreeBikes {
+	font-family: 'Cabin Sketch', cursive, Arial, Verdana, Times New Roman, serif;
+	font-size: 1em;
+	color: rgb(239, 90, 36);
+	padding-top: 400px;
+	width: 80%;
+	position: absolute;
+	text-align: center;
+	bottom: 43px;
+	left: 56px;
+}
+
+		/* --------- Signature -------------- */
+
+/* Window (background) */
+.resa_signature {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%;
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4); 
+}
+
+/* Box */
+#signature_resa {
+	display: flex;
+	flex-direction: column;
+    background-color: #fefefe;
+    margin: 15% auto; 
+    padding: 20px;
+    border: 2px solid rgb(239, 90, 36);
+    width: 800px; 
+    height: 400px;
+    color: rgb(78, 78, 78);
+    font-size: 1.5em;
+    position: relative;
+}
+
+#resa_station {
+	display: flex;
+	flex-direction: column;
+}
+
+#perso_name {
+	margin-left: 110px;
+}
+
+#perso_firstname {
+	margin-left: 79px;
+}
+
+#resa_data {
+	display: flex;
+	flex-direction: column;
+}
+
+#name_resa,
+#address_resa {
+	font-family: 'Advent Pro', sans-serif, Arial, Verdana, Times New Roman, serif;
+	font-size: 0.8em;
+	color: rgb(78, 78, 78);
+	position: relative;
+		left: 230px;
+		top: -40px;
+}
+
+#submit,
+#erase {
+	display: flex;
+	flex-direction: column;
+	background-color: white;
+	border-radius: 4px;
+	border: 2px solid rgb(78, 78, 78);
+	margin-bottom: 20px;
+	font-family: 'Cabin Sketch', cursive, Arial, Verdana, Times New Roman, serif;
+	color: rgb(78, 78, 78);
+	font-size: 1.5em;
+	position: relative;
+		bottom: -30px;
+		left: 55px;
+}
+
+#submit:hover,
+#erase:hover {
+	background-color: rgb(239, 90, 36);
+	color: rgb(131, 250, 131);
+}
+
+#resa_canvas {
+	position: absolute;
+		bottom: 40px;
+		right: 30px;
+	border: 2px solid rgb(131, 250, 131);
+	border-radius: 4px;
+}
+
+#alert_name {
+	font-family: 'Cabin Sketch', cursive, Arial, Verdana, Times New Roman, serif;
+	font-size: 0.7em;
+	color: rgb(239, 90, 36);
+	margin-top: 5px;
+	position: absolute;
+	width: 160px;
+	left: 570px;
+}
+
+#canvas_signature {
+	font-family: 'Cabin Sketch', cursive, Arial, Verdana, Times New Roman, serif;
+	font-size: 0.7em;
+	color: rgb(239, 90, 36);
+}
+
+		/* --------- Footer ---------- */
+
+.footer {
+	padding-top: 40px;
+	border-bottom: 4px solid rgb(131, 250, 131);
+}
+
+.footer h1 {
+	font-family: 'Cabin Sketch', cursive, Arial, Verdana, Times New Roman, serif;
+	font-size: 3em;
+	color:rgb(78, 78, 78);
+	text-align: center;
+	padding-top: 30px;
+	padding-bottom: 15px;
+	border-bottom: 4px dotted rgb(131, 250, 131);
+}
+
+.footer h2 {
+	font-family: 'Advent Pro', sans-serif, Arial, Verdana, Times New Roman, serif;
+	font-size: 1.5em;
+	color: rgb(239, 90, 36);
+	text-align: center;
+	padding-top: 30px;
+}
+
+#station_title {
+	display: flex;
+	flex-direction: row;
+	margin-bottom: 20px;
+	justify-content: center;
+}
+
+#station {
+	background-color: lightgrey;
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	height: 200px;
+	width: 500px;
+	margin-top: 20px;
+	margin-left: 50px;
+	border-radius: 3px;
+	box-shadow: 6px 6px 6px lightgrey;
+}
+
+#timer {
+	background-color: lightgrey;
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	height: 200px;
+	width: 500px;
+	margin-left: 175px;
+	margin-top: 20px;
+	border-radius: 3px;
+	box-shadow: 6px 6px 6px lightgrey;
+}
+
+#confirm_stationName,
+#confirm_stationAddress,
+#confirm_resa,
+#end_resa {
+	font-family: 'Cabin Sketch', cursive, Arial, Verdana, Times New Roman, serif;
+	font-size: 1.8em;
+	color: rgb(239, 90, 36);
+	padding-top: 25px;
+	margin: 0px 20px;
+}
+
+#reset_resa {
+	background-color: white;
+	border-radius: 4px;
+	border: 2px solid rgb(78, 78, 78);
+	font-family: 'Cabin Sketch', cursive, Arial, Verdana, Times New Roman, serif;
+	color: rgb(78, 78, 78);
+	font-size: 1em;
+	margin: 0 auto;
+	margin-top: 80px;
+}
+
+#reset_resa:hover {
+	background-color: rgb(239, 90, 36);
+	color: rgb(131, 250, 131);
+}
+
+/* ---- RESPONSIVE DESIGN ---- */
+
