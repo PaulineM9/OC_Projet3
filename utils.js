@@ -1,4 +1,4 @@
-//general Ajax function
+// Ajax GET function
 
 function ajaxGet(url, callback) {
 	var req = new XMLHttpRequest();

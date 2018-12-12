@@ -158,6 +158,10 @@ html, body {
 	font-size: 1.8em;
 }
 
+#nav_play {
+	display: none;
+}
+
 .slide p {
 	background-color: rgba(254, 254, 254, 0.7);
 	width: 700px;
