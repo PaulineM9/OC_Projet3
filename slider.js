@@ -2,7 +2,7 @@
 *SLIDER OBJECT
 */
 
-var slider = {
+var Slider = {
 
 // slider animation auto
 
@@ -10,10 +10,10 @@ qsa: function(selector) {
     return document.querySelectorAll(selector);
   },
 
-  qs: function(selector) {
+qs: function(selector) {
     return document.querySelector(selector);
   },
-  
+
 slides: qsa('.slide'), 
 slideActive: 0,
 intervalId: setInterval(function() {
@@ -24,7 +24,6 @@ intervalId: setInterval(function() {
     slideActive++; 
     slides[slideActive].classList.add('active'); 
   }, 5000),
-
 
 // slider animation mouse keypress 
 /*goNext: document.getElementById ("nav_right"),
