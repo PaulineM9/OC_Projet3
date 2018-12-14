@@ -53,6 +53,8 @@ var InfosReservation = {
 				this.name_resa = document.getElementById("name_resa").innerHTML;
 				this.address_resa = document.getElementById("address_resa").innerHTML;
 				
+				// TODO: conditions if there is no signature or no name and firstname				
+
 				sessionStorage.setItem("perso_name", this.perso_name);
 				sessionStorage.setItem("perso_firstname", this.perso_firstname);
 				sessionStorage.setItem("name_resa", this.name_resa);
@@ -60,9 +62,7 @@ var InfosReservation = {
 				//self.fenetre.style.display = "none";
 				document.getElementById("confirm_stationName").innerHTML = this.name_resa;
 				document.getElementById("confirm_stationAddress").innerHTML = this.address_resa; 
-				
-				// TODO: conditions if there is no signature or no name and firstname				
-				
+								
 				// start the timer
 				function timer() {
 					var timer_resa = document.getElementById("confirm_resa");

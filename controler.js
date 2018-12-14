@@ -33,3 +33,5 @@ var myCanvas = Object.create(Canvas);
 myCanvas.init(signatureParams.canvas, signatureParams.ctx);
 
 //CONTROLER SLIDER OBJECT
+var sliderGo = Object.create(slider);
+
