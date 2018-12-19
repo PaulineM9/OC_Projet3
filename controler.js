@@ -34,5 +34,5 @@ myCanvas.init(signatureParams.canvas, signatureParams.ctx);
 
 //CONTROLER SLIDER OBJECT
 var sliderGo = Object.create(Slider);
-sliderGo.qsa();
-sliderGo.qs();
+sliderGo.qsa(selector);
+sliderGo.qs(selector);
