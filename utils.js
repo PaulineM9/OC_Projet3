@@ -15,7 +15,12 @@ function ajaxGet(url, callback) {
 		console.error("Erreur réseau avec l'url " + url);
 	});
 	req.send(null);
-}
+};
 
+function qsa(selector) {
+	return document.querySelectorAll(selector);
+};
 
-
+function qs(selector) {
+	return document.querySelector(selector);
+};
