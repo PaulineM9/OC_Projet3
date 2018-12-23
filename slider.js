@@ -32,19 +32,19 @@ var Slider = {
    * initControls - init all event listeners
    */
   initControls: function () {
-    this.goNextElt.addEventListener('click', this.next.bind(this));
+    this.goNextElt.addEventListener("click", this.next.bind(this));
     this.goPreviousElt.addEventListener("click", this.previous.bind(this));
     this.stopElt.addEventListener("click", this.autoSlide.bind(this));
     this.playElt.addEventListener("click", this.playSlide.bind(this));
+
     // TODO:insérer la commande keypress pour activer le next et previous au clavier
+    // KEY_LEFT = 37; KEY_RIGHT = 39
   },
 
   /**
    * next - animate the slider to the next slide
    */
   next: function () {
-    console.log(this);
-
     if (this.slideActive >= this.slides.length - 1) { // qd la ftn arrive à la dernière image donc que la ftn slideActive est au bout..
       this.slideActive = -1; // ..la fonction reprend a l'image 1
     }
@@ -86,8 +86,7 @@ var Slider = {
     this.goPreviousElt.style.display = "inline";
     this.goNextElt.style.display = "inline";
     this.playElt.style.display = "none";
-  }
+  },
 
-  // TODO: FAIRE FONCTIONNER LE SLIDER AU CLAVIER AVEC LES FLÈCHES
-
+  
 }
