@@ -476,7 +476,6 @@ html, body {
 	height: 200px;
 	width: 500px;
 	margin-top: 20px;
-	margin-left: 50px;
 	border-radius: 3px;
 	box-shadow: 6px 6px 6px lightgrey;
 }
@@ -506,6 +505,7 @@ html, body {
 }
 
 #reset_resa {
+	display: none; 
 	background-color: white;
 	border-radius: 4px;
 	border: 2px solid rgb(78, 78, 78);
@@ -513,7 +513,7 @@ html, body {
 	color: rgb(78, 78, 78);
 	font-size: 1em;
 	margin: 0 auto;
-	margin-top: 80px;
+	margin-top: 30px;
 }
 
 #reset_resa:hover {

@@ -87,6 +87,4 @@ var Slider = {
     this.goNextElt.style.display = "inline";
     this.playElt.style.display = "none";
   },
-
-  
 }

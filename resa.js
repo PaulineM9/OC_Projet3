@@ -8,6 +8,7 @@ var InfosReservation = {
 	btn: document.getElementById("resa_confirm"),
 	erase: document.getElementById("erase"),
 	submit: document.getElementById("submit"),
+	reset: document.getElementById("reset_resa"),
 	window: window,
 	
 	//MÉTHODES
@@ -53,7 +54,23 @@ var InfosReservation = {
 				this.name_resa = document.getElementById("name_resa").innerHTML;
 				this.address_resa = document.getElementById("address_resa").innerHTML;
 				
-				// TODO: conditions if there is no signature or no name and firstname				
+				
+				// check if the canvas has been signed
+				var canvas = document.getElementById("resa_canvas");
+				var ctx = canvas.getContext("2d");
+				var arrayCanvasData = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
+
+				var sum = arrayCanvasData.reduce(function (a, b) {
+					return a + b;
+				}, 0);
+
+				// TODO: condition if there is no signature or no name and firstname + canvas signed
+				if ( isStringValid(this.perso_firstname) && isStringValid(this.perso_name) && sum > 0) {
+					console.log("form ok");
+				} else { // error
+					console.log('form not ok');
+				}
+
 
 				sessionStorage.setItem("perso_name", this.perso_name);
 				sessionStorage.setItem("perso_firstname", this.perso_firstname);
@@ -87,6 +104,7 @@ var InfosReservation = {
 							m="0"+m
 						}
 							timer_resa.innerHTML = m+":"+s;
+							this.reset_resa.style.display = "block";
 						}
 					duree=duree-1;
 					window.setTimeout(timer,999);
@@ -104,7 +122,7 @@ var InfosReservation = {
 	
 	
 	/* NOTES:
-	//la fonction confirmOption() dans l'évèvement est-elle appelée comme il le faudrait?
+	//la fonction confirmOption() dans l'évènement est-elle appelée comme il le faudrait?
 			//confusion entre fonction VS fonction exécutée: 
 			//on doit donner à un évèvement une fonction en paramètre et pas le résultat d'une fonction
 			/*un addEventListener s'utilise généralement au choix comme ça :

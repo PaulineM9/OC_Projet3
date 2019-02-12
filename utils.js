@@ -24,3 +24,15 @@ function qsa(selector) {
 function qs(selector) {
 	return document.querySelector(selector);
 };
+
+// check if a string is valid
+function isStringValid(string) {
+	// TODO: improve the type checking, exe : "4" should not be valid
+	if (string !== '' && typeof string == "string") {
+		return true;
+	} else {
+		return false;
+	}
+}
+
+
