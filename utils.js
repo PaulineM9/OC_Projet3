@@ -28,7 +28,10 @@ function qs(selector) {
 // check if a string is valid
 function isStringValid(string) {
 	// TODO: improve the type checking, exe : "4" should not be valid
-	if (string !== '' && typeof string == "string") {
+	var reName = document.getElementById("perso_name").value;
+	var reFirstName = document.getElementById("perso_firstname").value;
+
+	if (string !== '' && typeof string == "string" && /[a-zA-Z]/.test(reName) && /[a-zA-Z]/.test(reFirstName) ) {
 		return true;
 	} else {
 		return false;

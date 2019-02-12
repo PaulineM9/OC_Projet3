@@ -82,7 +82,7 @@ var InfosReservation = {
 				document.getElementById("confirm_stationAddress").innerHTML = this.address_resa; 
 								
 				// start the timer
-				function timer() {
+				function timer() {  // doit se trouver dans 'utils'?
 					var timer_resa = document.getElementById("confirm_resa");
 					s=duree;
 					m=0;
