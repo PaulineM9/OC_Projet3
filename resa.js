@@ -10,6 +10,7 @@ var InfosReservation = {
 	submit: document.getElementById("submit"),
 	reset: document.getElementById("reset_resa"),
 	window: window,
+	intervalId: '',
 	
 	//MÉTHODES
 	// Open the window
@@ -107,8 +108,9 @@ var InfosReservation = {
 							this.reset_resa.style.display = "block";
 						}
 					duree=duree-1;
-					window.setTimeout(timer,999);
-					}
+					self.intervalId = window.setTimeout(timer,999);
+
+				}
 				
 				duree="1200";
 				timer();

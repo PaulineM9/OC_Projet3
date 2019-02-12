@@ -11,8 +11,6 @@ var paramsLyonMap = {
 
 var mapLyon = Object.create(MyMap);
 mapLyon.init(paramsLyonMap);
-//markers.addLayer(L.marker(station.position));
-//mapLyon.addLayer(markers);
 
 //CONTROLER RESA OBJECT
 var currentResa = Object.create(InfosReservation);
