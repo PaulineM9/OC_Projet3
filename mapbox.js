@@ -26,7 +26,6 @@ var MyMap = {
 
 		console.log(markers);
 		
-//test git 
 		station_mapping.forEach(function (station) {
 			var marker = L.marker(station.position);
 			markers.addLayer(marker);
