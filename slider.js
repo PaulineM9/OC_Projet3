@@ -88,5 +88,3 @@ var Slider = {
     this.playElt.style.display = "none";
   },
 }
-
-//GIT TEST
