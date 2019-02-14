@@ -8,9 +8,8 @@ var InfosReservation = {
 	btn: document.getElementById("resa_confirm"),
 	erase: document.getElementById("erase"),
 	submit: document.getElementById("submit"),
-	reset: document.getElementById("reset_resa"),
 	window: window,
-	intervalId: '',
+	timerId: null,
 	
 	//MÉTHODES
 	// Open the window
@@ -55,23 +54,7 @@ var InfosReservation = {
 				this.name_resa = document.getElementById("name_resa").innerHTML;
 				this.address_resa = document.getElementById("address_resa").innerHTML;
 				
-				
-				// check if the canvas has been signed
-				var canvas = document.getElementById("resa_canvas");
-				var ctx = canvas.getContext("2d");
-				var arrayCanvasData = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
-
-				var sum = arrayCanvasData.reduce(function (a, b) {
-					return a + b;
-				}, 0);
-
-				// TODO: condition if there is no signature or no name and firstname + canvas signed
-				if ( isStringValid(this.perso_firstname) && isStringValid(this.perso_name) && sum > 0) {
-					console.log("form ok");
-				} else { // error
-					console.log('form not ok');
-				}
-
+				// TODO: conditions if there is no signature or no name and firstname				
 
 				sessionStorage.setItem("perso_name", this.perso_name);
 				sessionStorage.setItem("perso_firstname", this.perso_firstname);
@@ -82,7 +65,10 @@ var InfosReservation = {
 				document.getElementById("confirm_stationAddress").innerHTML = this.address_resa; 
 								
 				// start the timer
-				function timer() {  // doit se trouver dans 'utils'?
+				function timer() {
+					if (self.timerId) { // reset the previous timer if running
+						clearTimeout(self.timerId)
+					}
 					var timer_resa = document.getElementById("confirm_resa");
 					s=duree;
 					m=0;
@@ -105,12 +91,10 @@ var InfosReservation = {
 							m="0"+m
 						}
 							timer_resa.innerHTML = m+":"+s;
-							this.reset_resa.style.display = "block";
 						}
-					duree=duree-1;
-					self.intervalId = window.setTimeout(timer,999);
-
-				}
+						duree=duree-1;
+						self.timerId = window.setTimeout(timer,999);
+					}
 				
 				duree="1200";
 				timer();
@@ -124,7 +108,7 @@ var InfosReservation = {
 	
 	
 	/* NOTES:
-	//la fonction confirmOption() dans l'évènement est-elle appelée comme il le faudrait?
+	//la fonction confirmOption() dans l'évèvement est-elle appelée comme il le faudrait?
 			//confusion entre fonction VS fonction exécutée: 
 			//on doit donner à un évèvement une fonction en paramètre et pas le résultat d'une fonction
 			/*un addEventListener s'utilise généralement au choix comme ça :
