@@ -38,4 +38,35 @@ function isStringValid(string) {
 	}
 }
 
+function timer() {
+	if (self.timerId) { // reset the previous timer if running
+		clearTimeout(self.timerId)
+	}
+	var timer_resa = document.getElementById("confirm_resa");
+	s=duree;
+	m=0;
+	h=0;
+	if(s<0) {
+		timer_resa.innerHTML = "La durée de votre réservation a expiré." // remplacer par remove ('hidden') sur span html
+	} else {
+		if(s>59) {
+			m=Math.floor(s/60);
+			s=s-m*60;
+		}
+		if(m>59) {
+			h=Math.floor(m/60);
+			m=m-h*60;
+		}
+		if(s<10) {
+			s="0"+s;		
+		}
+		if(m<10) {
+			m="0"+m
+		}
+			timer_resa.innerHTML = m+":"+s;
+		}
+		duree=duree-1;
+		self.timerId = window.setTimeout(timer,999);
+	}
+
 
