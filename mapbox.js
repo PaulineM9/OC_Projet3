@@ -21,6 +21,7 @@ var MyMap = {
 	// JCDecaux function: real data from API JCDecaux, Json format
 	getStations: function (list_stations) {
 		var self = this;
+		var stations_status = document.getElementById("station_status").innerHTML
 		var station_mapping = JSON.parse(list_stations);
 		var markers = new L.MarkerClusterGroup();
 

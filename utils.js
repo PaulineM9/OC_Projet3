@@ -48,6 +48,7 @@ function timer() {
 	h=0;
 	if(s<0) {
 		timer_resa.innerHTML = "La durée de votre réservation a expiré." // remplacer par remove ('hidden') sur span html
+		self.reset_resa.style.display = "none";
 	} else {
 		if(s>59) {
 			m=Math.floor(s/60);
@@ -66,7 +67,7 @@ function timer() {
 			timer_resa.innerHTML = m+":"+s;
 		}
 		duree=duree-1;
-		self.timerId = window.setTimeout(timer,999);
+		self.timerId = window.setTimeout(timer,9);//indiquer 999
 	}
 
 
