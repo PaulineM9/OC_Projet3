@@ -28,10 +28,10 @@ function qs(selector) {
 // check if a string is valid
 function isStringValid(string) {
 	// TODO: improve the type checking, exe : "4" should not be valid
-	var reName = document.getElementById("perso_name").value;
-	var reFirstName = document.getElementById("perso_firstname").value;
+	//var reName = document.getElementById("perso_name").value;
+	//var reFirstName = document.getElementById("perso_firstname").value;
 
-	if (string !== '' && typeof string == "string" && /[a-zA-Z]/.test(reName) && /[a-zA-Z]/.test(reFirstName)) {
+	if (string !== '' && typeof string == "string" && /[a-zA-Z]/.test(string)) {
 		return true;
 	} else {
 		return false;
@@ -39,8 +39,8 @@ function isStringValid(string) {
 }
 
 function timer() {
-	if (self.timerId) { // reset the previous timer if running
-		clearTimeout(self.timerId)
+	if (window.timerId) { // reset the previous timer if running
+		clearTimeout(window.timerId)
 	}
 	var timer_resa = document.getElementById("confirm_resa");
 	s = duree;
@@ -48,7 +48,7 @@ function timer() {
 	h = 0;
 	if (s < 0) {
 		timer_resa.innerHTML = "La durée de votre réservation a expiré." // remplacer par remove ('hidden') sur span html
-		self.reset_resa.style.display = "none";
+		window.reset_resa.style.display = "none";
 	} else {
 		if (s > 59) {
 			m = Math.floor(s / 60);
@@ -67,7 +67,7 @@ function timer() {
 		timer_resa.innerHTML = m + ":" + s;
 	}
 	duree = duree - 1;
-	self.timerId = window.setTimeout(timer, 9);//indiquer 999
+	window.timerId = window.setTimeout(timer, 9);//indiquer 999
 }
 
 

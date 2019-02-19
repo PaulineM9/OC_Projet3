@@ -50,30 +50,54 @@ var InfosReservation = {
 			var self= this;
 			this.submit.addEventListener("click", confirmOption);
 			function confirmOption() {
+				// !! this = submit button
+				// !! self = InfosReservation
 				this.perso_name = document.getElementById("perso_name").value;
 				this.perso_firstname = document.getElementById("perso_firstname").value;
 				this.name_resa = document.getElementById("name_resa").innerHTML;
 				this.address_resa = document.getElementById("address_resa").innerHTML;
 				this.reset_resa = document.getElementById("reset_resa").innerHTML;
+
+				// check if the canvas has been signed
+				/*var canvas = document.getElementById("resa_canvas");
+				var ctx = canvas.getContext("2d");
+				var arrayCanvasData = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
+
+				var sum = arrayCanvasData.reduce(function (a, b) {
+					return a + b;
+				}, 0);
+
+				// TODO: condition if there is no signature or no name and firstname + canvas signed
+				if ( isStringValid(this.perso_firstname) && isStringValid(this.perso_name) && sum > 0) {
+					console.log("form ok");
+				} else { // error
+					console.log('form not ok');
+				}*/
+
+				if (isStringValid(this.perso_name) && isStringValid(this.perso_firstname)) {
+					sessionStorage.setItem("perso_name", this.perso_name); // TODO: change for localStorage
+					sessionStorage.setItem("perso_firstname", this.perso_firstname); // TODO: change for localStorage
+
+					sessionStorage.setItem("name_resa", this.name_resa);
+					sessionStorage.setItem("address_resa", this.address_resa);
+					self.fenetre.style.display = "none";
+	
+					//display informations about reservation on the front page
+					document.getElementById("confirm_stationName").innerHTML = this.name_resa;
+					document.getElementById("confirm_stationAddress").innerHTML = this.address_resa; 
+									
+					// start and record the timer	
+					duree="1200";
+					timer();
+					// TODO: enregistrer le résultat de la fonction ds sessionStorage pr conserver l'affichage du timer mm si
+						// on ferme le navigateur
+	
+					// active reset button	
+					reset_resa.style.display = "block";
+				} else {
+					// TODO: error
+				}
 				
-				sessionStorage.setItem("perso_name", this.perso_name);
-				sessionStorage.setItem("perso_firstname", this.perso_firstname);
-				sessionStorage.setItem("name_resa", this.name_resa);
-				sessionStorage.setItem("address_resa", this.address_resa);
-				self.fenetre.style.display = "none";
-
-				//display informations about reservation on the front page
-				document.getElementById("confirm_stationName").innerHTML = this.name_resa;
-				document.getElementById("confirm_stationAddress").innerHTML = this.address_resa; 
-								
-				// start and record the timer	
-				duree="1200";
-				timer();
-				// TODO: enregistrer le résultat de la fonction ds localStorage pr conserver l'affichage du timer mm si
-					// on ferme le navigateur
-
-				// active reset button	
-				reset_resa.style.display = "block";
 			}
 		},
 		// User click on 'reset button' to erase the reservation
@@ -81,8 +105,7 @@ var InfosReservation = {
 			var self= this;
 			self.reset_resa.addEventListener("click", stopTimer);
 				function stopTimer() {
-					console.log("test ok");
-					clearTimeout(self.timerId);
+					clearTimeout(window.timerId);
 				}
 		}
 	}
