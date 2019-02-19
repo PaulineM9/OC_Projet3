@@ -18,6 +18,7 @@ currentResa.openBox();
 currentResa.eraseBox();
 currentResa.clickOut();
 currentResa.confirmResa();
+currentResa.resetAction();
 
 //CONTROLER CANVAS OBJECT
 var signatureParams = {

@@ -8,6 +8,7 @@ var InfosReservation = {
 	btn: document.getElementById("resa_confirm"),
 	erase: document.getElementById("erase"),
 	submit: document.getElementById("submit"),
+	reset_resa: document.getElementById("reset_resa"),
 	window: window,
 	timerId: null,
 	
@@ -68,14 +69,21 @@ var InfosReservation = {
 				// start and record the timer	
 				duree="1200";
 				timer();
-
-				// display reset button
-				reset_resa.style.display = "block";
-				
-				// TODO: enregistrer le résultat de la fonction ds sessionStorage pr conserver l'affichage du timer mm si
+				// TODO: enregistrer le résultat de la fonction ds localStorage pr conserver l'affichage du timer mm si
 					// on ferme le navigateur
-			;
+
+				// active reset button	
+				reset_resa.style.display = "block";
 			}
+		},
+		// User click on 'reset button' to erase the reservation
+		resetAction: function() {
+			var self= this;
+			self.reset_resa.addEventListener("click", stopTimer);
+				function stopTimer() {
+					console.log("test ok");
+					clearTimeout(self.timerId);
+				}
 		}
 	}
 	
