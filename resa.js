@@ -96,7 +96,8 @@ var InfosReservation = {
 					// TODO: enregistrer l'encourt du timer dans le local storage
 
 				} else { // error
-					console.log('form not ok');					
+					console.log('form not ok');	
+					// TODO: border orange sur input et canvas			
 				}				
 			}
 		},
