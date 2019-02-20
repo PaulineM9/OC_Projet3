@@ -79,8 +79,8 @@ var InfosReservation = {
 
 					// display the reset button
 					reset_resa.style.display = "block";
-					sessionStorage.setItem("perso_name", this.perso_name); // TODO: change for localStorage
-					sessionStorage.setItem("perso_firstname", this.perso_firstname); // TODO: change for localStorage
+					localStorage.setItem("perso_name", this.perso_name); // TODO: change for localStorage
+					localStorage.setItem("perso_firstname", this.perso_firstname); // TODO: change for localStorage
 
 					sessionStorage.setItem("name_resa", this.name_resa);
 					sessionStorage.setItem("address_resa", this.address_resa);
@@ -93,14 +93,11 @@ var InfosReservation = {
 					// start and record the timer	
 					duree="1200";
 					timer();
+					// TODO: enregistrer l'encourt du timer dans le local storage
 
-					// TODO: enregistrer le résultat de la fonction ds sessionStorage pr conserver l'affichage du timer mm si
-						// on ferme le navigateur
-	
 				} else { // error
 					console.log('form not ok');					
-				}
-				
+				}				
 			}
 		},
 		// User click on 'reset button' to erase the reservation
@@ -109,8 +106,9 @@ var InfosReservation = {
 			self.reset_resa.addEventListener("click", stopTimer);
 				function stopTimer() {
 					clearTimeout(window.timerId);
-					//reset_resa.style.display = "block";
-					//confirm_resa.style.display = "none";
+					infos_reset.style.display = "block";
+					confirm_resa.style.display = "none";
+					reset_resa.style.display = "none";
 				}
 		}
 	}
