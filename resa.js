@@ -59,7 +59,7 @@ var InfosReservation = {
 				this.reset_resa = document.getElementById("reset_resa").innerHTML;
 
 				// check if the canvas has been signed
-				/*var canvas = document.getElementById("resa_canvas");
+				var canvas = document.getElementById("resa_canvas");
 				var ctx = canvas.getContext("2d");
 				var arrayCanvasData = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
 
@@ -67,14 +67,18 @@ var InfosReservation = {
 					return a + b;
 				}, 0);
 
-				// TODO: condition if there is no signature or no name and firstname + canvas signed
-				if ( isStringValid(this.perso_firstname) && isStringValid(this.perso_name) && sum > 0) {
-					console.log("form ok");
-				} else { // error
-					console.log('form not ok');
-				}*/
+				//check if values are ok
+				var reName = document.getElementById("perso_name").value;
+				var reFirstName = document.getElementById("perso_firstname").value;
 
-				if (isStringValid(this.perso_name) && isStringValid(this.perso_firstname)) {
+				var isReNameValid = isStringValid(reName);
+				var isReFirstNameValid = isStringValid(reFirstName);
+
+				// condition if there is no signature or no name and firstname or canvas not signed
+				if ( isStringValid(this.perso_firstname) && isStringValid(this.perso_name) && isStringValid(this.reset_resa) && sum > 0) {
+
+					// display the reset button
+					reset_resa.style.display = "block";
 					sessionStorage.setItem("perso_name", this.perso_name); // TODO: change for localStorage
 					sessionStorage.setItem("perso_firstname", this.perso_firstname); // TODO: change for localStorage
 
@@ -89,13 +93,12 @@ var InfosReservation = {
 					// start and record the timer	
 					duree="1200";
 					timer();
+
 					// TODO: enregistrer le résultat de la fonction ds sessionStorage pr conserver l'affichage du timer mm si
 						// on ferme le navigateur
 	
-					// active reset button	
-					reset_resa.style.display = "block";
-				} else {
-					// TODO: error
+				} else { // error
+					console.log('form not ok');					
 				}
 				
 			}
@@ -106,6 +109,8 @@ var InfosReservation = {
 			self.reset_resa.addEventListener("click", stopTimer);
 				function stopTimer() {
 					clearTimeout(window.timerId);
+					//reset_resa.style.display = "block";
+					//confirm_resa.style.display = "none";
 				}
 		}
 	}

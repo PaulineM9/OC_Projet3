@@ -27,16 +27,24 @@ function qs(selector) {
 
 // check if a string is valid
 function isStringValid(string) {
-	// TODO: improve the type checking, exe : "4" should not be valid
-	//var reName = document.getElementById("perso_name").value;
-	//var reFirstName = document.getElementById("perso_firstname").value;
-
 	if (string !== '' && typeof string == "string" && /[a-zA-Z]/.test(string)) {
 		return true;
 	} else {
 		return false;
 	}
 }
+
+/*var reName = document.getElementById("perso_name").value;
+var reFirstName = document.getElementById("perso_firstname").value;
+
+var isReNameValid = isStringValid(reName);
+var isReFirstNameValid = isStringValid(reFirstName);
+
+if (isStringValid(reName) && isStringValid(reFirstName)) {
+    console.log('Les deux chaines sont valides');
+} else {
+    console.log('Au moins une des deux chaines n\'est pas valide');
+}*/
 
 function timer() {
 	if (window.timerId) { // reset the previous timer if running
