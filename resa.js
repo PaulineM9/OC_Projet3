@@ -79,8 +79,8 @@ var InfosReservation = {
 
 					// display the reset button
 					reset_resa.style.display = "block";
-					sessionStorage.setItem("perso_name", this.perso_name); // TODO: change for localStorage
-					sessionStorage.setItem("perso_firstname", this.perso_firstname); // TODO: change for localStorage
+					localStorage.setItem("perso_name", this.perso_name); // TODO: change for localStorage
+					localStorage.setItem("perso_firstname", this.perso_firstname); // TODO: change for localStorage
 
 					sessionStorage.setItem("name_resa", this.name_resa);
 					sessionStorage.setItem("address_resa", this.address_resa);
@@ -109,8 +109,9 @@ var InfosReservation = {
 			self.reset_resa.addEventListener("click", stopTimer);
 				function stopTimer() {
 					clearTimeout(window.timerId);
-					//reset_resa.style.display = "block";
-					//confirm_resa.style.display = "none";
+					infos_reset.style.display = "block";
+					confirm_resa.style.display = "none";
+					reset_resa.style.display = "none";
 				}
 		}
 	}
