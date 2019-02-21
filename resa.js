@@ -73,10 +73,17 @@ var InfosReservation = {
 
 				var isReNameValid = isStringValid(reName);
 				var isReFirstNameValid = isStringValid(reFirstName);
+<<<<<<< HEAD
 
 				// condition if there is no signature or no name and firstname or canvas not signed
 				if ( isStringValid(this.perso_firstname) && isStringValid(this.perso_name) && isStringValid(this.reset_resa) && sum > 0) {
 
+=======
+
+				// condition if there is no signature or no name and firstname or canvas not signed
+				if ( isStringValid(this.perso_firstname) && isStringValid(this.perso_name) && isStringValid(this.reset_resa) && sum > 0) {
+
+>>>>>>> 8c772bf11611e770560c2196e0732dc45a6026b0
 					// display the reset button
 					reset_resa.style.display = "block";
 					localStorage.setItem("perso_name", this.perso_name); // TODO: change for localStorage
@@ -93,12 +100,23 @@ var InfosReservation = {
 					// start and record the timer	
 					duree="1200";
 					timer();
+<<<<<<< HEAD
+
+					// TODO: enregistrer le résultat de la fonction ds sessionStorage pr conserver l'affichage du timer mm si
+						// on ferme le navigateur
+	
+				} else { // error
+					console.log('form not ok');					
+				}
+				
+=======
 					// TODO: enregistrer l'encourt du timer dans le local storage
 
 				} else { // error
 					console.log('form not ok');	
 					// TODO: border orange sur input et canvas			
 				}				
+>>>>>>> 8c772bf11611e770560c2196e0732dc45a6026b0
 			}
 		},
 		// User click on 'reset button' to erase the reservation
