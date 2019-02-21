@@ -496,7 +496,8 @@ html, body {
 #confirm_stationName,
 #confirm_stationAddress,
 #confirm_resa,
-#end_resa {
+#end_resa,
+#infos_reset {
 	font-family: 'Cabin Sketch', cursive, Arial, Verdana, Times New Roman, serif;
 	font-size: 1.8em;
 	color: rgb(239, 90, 36);
