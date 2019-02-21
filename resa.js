@@ -112,8 +112,8 @@ var InfosReservation = {
 					reset_resa.style.display = "none";
 				}
 		}
-	}
-	
+}
+	// git test
 	
 	/* NOTES:
 	//la fonction confirmOption() dans l'évèvement est-elle appelée comme il le faudrait?
