@@ -79,8 +79,8 @@ var InfosReservation = {
 
 					// display the reset button
 					reset_resa.style.display = "block";
-					localStorage.setItem("perso_name", this.perso_name); // TODO: change for localStorage
-					localStorage.setItem("perso_firstname", this.perso_firstname); // TODO: change for localStorage
+					localStorage.setItem("perso_name", this.perso_name); 
+					localStorage.setItem("perso_firstname", this.perso_firstname); 
 
 					sessionStorage.setItem("name_resa", this.name_resa);
 					sessionStorage.setItem("address_resa", this.address_resa);
@@ -97,7 +97,10 @@ var InfosReservation = {
 
 				} else { // error
 					console.log('form not ok');	
-					// TODO: border orange sur input et canvas			
+					// TODO: border orange sur input et canvas: perso_name, perso_firstname, canvas
+					perso_name.style.border = "2px solid rgb(239, 90, 36)";
+					perso_firstname.style.border = "2px solid rgb(239, 90, 36)";
+					canvas.style.border = "2px solid rgb(239, 90, 36)";
 				}				
 			}
 		},
