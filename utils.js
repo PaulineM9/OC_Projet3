@@ -63,7 +63,7 @@ function timer() {
 		timer_resa.innerHTML = m + ":" + s;
 	}
 	duree = duree - 1;
-	window.timerId = window.setTimeout(timer, 9);//indiquer 999
+	window.timerId = window.setTimeout(timer, 999);
 }
 
 
