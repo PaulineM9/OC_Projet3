@@ -93,11 +93,9 @@ var InfosReservation = {
 					// start and record the timer	
 					duree="1200";
 					timer();
-					// TODO: enregistrer l'encourt du timer dans le local storage
 
 				} else { // error
 					console.log('form not ok');	
-					// TODO: border orange sur input et canvas: perso_name, perso_firstname, canvas
 					perso_name.style.border = "2px solid rgb(239, 90, 36)";
 					perso_firstname.style.border = "2px solid rgb(239, 90, 36)";
 					canvas.style.border = "2px solid rgb(239, 90, 36)";
