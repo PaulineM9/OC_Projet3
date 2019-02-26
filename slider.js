@@ -37,8 +37,23 @@ var Slider = {
     this.stopElt.addEventListener("click", this.autoSlide.bind(this));
     this.playElt.addEventListener("click", this.playSlide.bind(this));
 
+    // animation slider on keyboard
+    document.addEventListener("onkeypress", function(e){
+      console.log("test ok");
+      if(e.keyCode === 37){
+        console.log("ok");
+        previous();
+      }
+      else if(e.keyCode === 39){
+        console.log("ok");
+        next();
+      }
+  });
+
     // TODO:insérer la commande keypress pour activer le next et previous au clavier
     // KEY_LEFT = 37; KEY_RIGHT = 39
+    // onKeyPress="if (event.keyCode == 37) prevImage()" 
+		// onKeyPress="if (event.keyCode == 39) nextImage()" 
   },
 
   /**
