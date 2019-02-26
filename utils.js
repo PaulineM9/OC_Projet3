@@ -34,7 +34,8 @@ function isStringValid(string) {
 	}
 }
 
-function timer() {
+function timer(duree) {
+	console.log(duree);
 	if (window.timerId) { // reset the previous timer if running
 		clearTimeout(window.timerId)
 	}
@@ -63,7 +64,10 @@ function timer() {
 		timer_resa.innerHTML = m + ":" + s;
 	}
 	duree = duree - 1;
-	window.timerId = window.setTimeout(timer, 999);
+	sessionStorage.setItem("timer", duree);
+	window.timerId = window.setTimeout(function () {
+		timer(duree);
+	}, 999);
 }
 
 

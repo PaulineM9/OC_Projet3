@@ -79,6 +79,8 @@ var InfosReservation = {
 
 					// display the reset button
 					reset_resa.style.display = "block";
+					// TODO: hide '#infos_reset'
+					// TODO: show '#confirm_resa'
 					localStorage.setItem("perso_name", this.perso_name); 
 					localStorage.setItem("perso_firstname", this.perso_firstname); 
 
@@ -91,8 +93,7 @@ var InfosReservation = {
 					document.getElementById("confirm_stationAddress").innerHTML = this.address_resa; 
 									
 					// start and record the timer	
-					duree="1200";
-					timer();
+					timer("1200");
 
 				} else { // error
 					console.log('form not ok');	

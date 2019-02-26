@@ -19,6 +19,13 @@ currentResa.eraseBox();
 currentResa.clickOut();
 currentResa.confirmResa();
 currentResa.resetAction();
+console.log(sessionStorage.getItem("timer"));
+if (sessionStorage.getItem("timer") > 0) {
+	timer(sessionStorage.getItem("timer"));
+	document.getElementById("confirm_stationName").innerHTML = sessionStorage.getItem("name_resa");
+	document.getElementById("confirm_stationAddress").innerHTML = sessionStorage.getItem("address_resa");``
+	reset_resa.style.display = "block";
+}
 
 //CONTROLER CANVAS OBJECT
 var signatureParams = {
