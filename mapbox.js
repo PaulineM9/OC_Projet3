@@ -25,7 +25,7 @@ var MyMap = {
 		var station_mapping = JSON.parse(list_stations);
 		var markers = new L.MarkerClusterGroup();
 
-		console.log(markers);
+		// console.log(markers);
 		
 		station_mapping.forEach(function (station) {
 			var marker = L.marker(station.position);
@@ -60,7 +60,7 @@ var MyMap = {
 			}
 		});
 
-		console.log(markers);
+		// console.log(markers);
 
 		self.currentMap.addLayer(markers);
 
