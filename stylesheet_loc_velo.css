@@ -530,16 +530,12 @@ html, body {
 }
 
 /* ---- RESPONSIVE DESIGN ---- */
-/* smartphones - mode portrait 
-@media all and (max-width: 479px)
-smartphones - mode paysage - tablettes - mode portrait
-@media all and (min-width: 480px) and (max-width: 959px)
-écrans gd format
-@media all and (min-width: 1281px)
-{ */
 
-	/* smartphones - mode portrait */
 @media all and (max-width: 320px) {
+	body {
+		width: 100%;
+	}
+
 	#title_header {
 		display: flex;
 		flex-direction: column;
@@ -550,7 +546,22 @@ smartphones - mode paysage - tablettes - mode portrait
 		padding-left: 110px;
 	}
 
-	.slide {
-		width: 240%;
+	.slide p {
+		width: 400px;
+	}
+
+	.slide,
+	.search,
+	.map-container,
+	footer {
+		width: 235%;
+	}
+
+	.navigation {
+		left: 185px;
+	}
+
+	#search_line {
+		text-align: center;
 	}
 }
