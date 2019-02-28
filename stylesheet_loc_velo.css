@@ -63,10 +63,10 @@ html, body {
  		top: 0px;
  		left: 0px;
  	display: flex;
- 	flex-direction: row;
- 	justify-content: space-around;
+	 flex-direction: row;
+	 justify-content: space-around;
  	background-color: white;
- 	height: 120px;
+	 height: 120px;
  	width: 100%;
  	border-bottom: 4px dotted rgb(131, 250, 131);
  	z-index: 2;
@@ -77,10 +77,13 @@ html, body {
 	font-size: 4em;
 	color: rgb(78, 78, 78);
 	padding-top: 22px;
-	padding-left: 50px;
+	text-align: center;	
 } 
 
 #title_header h2 {
+	display: flex;
+	flex-wrap: wrap;
+	max-width: 100%;
 	font-family: 'Advent Pro', sans-serif, Arial, Verdana, Times New Roman, serif;
 	font-size: 1.5em;
 	color: rgb(239, 90, 36);
@@ -90,7 +93,7 @@ html, body {
 
 		/* ---------- Slide_section --------- */
 #slide_section {
-	width: 100%;
+	max-width: 100%;
 	padding-top: 130px;
 	padding-left: 20px;
 	padding-right: 20px;
@@ -527,4 +530,27 @@ html, body {
 }
 
 /* ---- RESPONSIVE DESIGN ---- */
+/* smartphones - mode portrait 
+@media all and (max-width: 479px)
+smartphones - mode paysage - tablettes - mode portrait
+@media all and (min-width: 480px) and (max-width: 959px)
+écrans gd format
+@media all and (min-width: 1281px)
+{ */
 
+	/* smartphones - mode portrait */
+@media all and (max-width: 320px) {
+	#title_header {
+		display: flex;
+		flex-direction: column;
+	}
+
+	#title_header h2 {
+		padding-top: 0px;
+		padding-left: 110px;
+	}
+
+	.slide {
+		width: 240%;
+	}
+}
