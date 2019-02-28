@@ -32,23 +32,14 @@ var Slider = {
    * initControls - init all event listeners
    */
   initControls: function () {
+    // animation slider on mouse click
     this.goNextElt.addEventListener("click", this.next.bind(this));
     this.goPreviousElt.addEventListener("click", this.previous.bind(this));
     this.stopElt.addEventListener("click", this.autoSlide.bind(this));
     this.playElt.addEventListener("click", this.playSlide.bind(this));
 
     // animation slider on keyboard
-    this.document.addEventListener("keydown", function(e) {
-      console.log("test ok");
-      if(e.keyCode === 37){
-        console.log("ok");
-        previous();
-      }
-      else if(e.keyCode === 39){
-        console.log("ok");
-        next();
-      }
-    });
+    document.addEventListener("keydown", this.keyboard.bind(this)); 
   },
 
   /**
@@ -81,11 +72,22 @@ var Slider = {
   },
 
   playSlide: function () {
-    var self = this;
     this.startAutoPlay();
     this.stopElt.style.display = "inline";
     this.goPreviousElt.style.display = "inline";
     this.goNextElt.style.display = "inline";
     this.playElt.style.display = "none";
+  },
+
+  keyboard: function () {
+    console.log("test ok");
+    if (this.keyboard.keyCode === 37) {
+      console.log("ok 37");
+      this.previous();
+    } 
+    else if (this.keyboard.keyCode === 39) {
+      console.log("ok 39");
+      this.next();
+    }
   },
 }
