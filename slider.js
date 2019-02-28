@@ -25,8 +25,8 @@ var Slider = {
       qs('.active').classList.remove('active');
       self.slideActive++;
       self.slides[self.slideActive].classList.add('active');
-    }, 5000);
-  },
+      }, 5000);
+    },
 
   /**
    * initControls - init all event listeners
@@ -38,7 +38,7 @@ var Slider = {
     this.playElt.addEventListener("click", this.playSlide.bind(this));
 
     // animation slider on keyboard
-    document.addEventListener("onkeypress", function(e){
+    this.document.addEventListener("keydown", function(e) {
       console.log("test ok");
       if(e.keyCode === 37){
         console.log("ok");
@@ -48,12 +48,7 @@ var Slider = {
         console.log("ok");
         next();
       }
-  });
-
-    // TODO:insérer la commande keypress pour activer le next et previous au clavier
-    // KEY_LEFT = 37; KEY_RIGHT = 39
-    // onKeyPress="if (event.keyCode == 37) prevImage()" 
-		// onKeyPress="if (event.keyCode == 39) nextImage()" 
+    });
   },
 
   /**
@@ -88,15 +83,6 @@ var Slider = {
   playSlide: function () {
     var self = this;
     this.startAutoPlay();
-    // setInterval(function () { // EST CE QUE JE SUIS OBLIGÉE DE REPORTER TOUTE LA FONCTION ICI?
-    //   if (self.slideActive >= self.slides.length - 1) { // qd la ftn arrive à la dernière image donc que la ftn slideActive est au bout..
-    //     self.slideActive = -1; // ..la fonction reprend a l'image 1
-    //   }
-    //   qs('.active').classList.remove('active'); // on enlève la classe 'active' au selecteur
-    //   self.slideActive++; // on incrémente de 1 chaque image du slide
-    //   self.slides[self.slideActive].classList.add('active'); // on ajoute à chaque élément du slide la classe 'active' à chaque incrémentation
-
-    // }, 5000);
     this.stopElt.style.display = "inline";
     this.goPreviousElt.style.display = "inline";
     this.goNextElt.style.display = "inline";
