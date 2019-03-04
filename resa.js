@@ -79,8 +79,8 @@ var InfosReservation = {
 
 					// display the reset button
 					reset_resa.style.display = "block";
-					// TODO: hide '#infos_reset'
-					// TODO: show '#confirm_resa'
+					infos_reset.style.display = "none";
+					confirm_resa.style.display = "block";
 					
 					localStorage.setItem("perso_name", this.perso_name); 
 					localStorage.setItem("perso_firstname", this.perso_firstname); 
