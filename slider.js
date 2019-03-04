@@ -79,13 +79,13 @@ var Slider = {
     this.playElt.style.display = "none";
   },
 
-  keyboard: function () {
+  keyboard: function (e) {
     console.log("test ok");
-    if (this.keyboard.keyCode === 37) {
+    if (e.keyCode === 37) {
       console.log("ok 37");
       this.previous();
     } 
-    else if (this.keyboard.keyCode === 39) {
+    else if (e.keyCode === 39) {
       console.log("ok 39");
       this.next();
     }
