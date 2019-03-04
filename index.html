@@ -120,7 +120,6 @@
 					<p class="alert_marker" id="alert_marker">Merci de choisir une station sur la carte pour effectuer une réservation.</p>
 					
 					<p class="alert_nofreeBikes hidden" id="alert_nofreeBikes">Il n'y a pas de vélo disponible à cette station.</p>
-
 					<div id="signature" class="resa_signature">
 						<div id="signature_resa">
 							<div id="resa_station">
@@ -160,20 +159,22 @@
 		<footer class="footer">
 			<h1>Votre réservation</h1>
 
-			<div id="station_title">
-				<div id="station">
-					<h2>Vous avez choisi la station</h2>
-					<p id="confirm_stationName"></p>
-					<p id="confirm_stationAddress"></p>
-				</div>
+			<section id="infos_section">
+				<div id="station_title">
+					<div id="station">
+						<h2>Vous avez choisi la station</h2>
+						<p id="confirm_stationName"></p>
+						<p id="confirm_stationAddress"></p>
+					</div>
 
-				<div id="timer">
-					<h2>Durée de votre réservation</h2>
-					<p class="confirm_resa " id="confirm_resa"></p>
-					<button class="reset_resa" id="reset_resa">Annuler</button>
-					<p class="infos_reset" id="infos_reset">Votre réservation a été annulée.</p>
+					<div id="timer">
+						<h2>Durée de votre réservation</h2>
+						<p class="confirm_resa " id="confirm_resa"></p>
+						<button class="reset_resa" id="reset_resa">Annuler</button>
+						<p class="infos_reset" id="infos_reset">Votre réservation a été annulée.</p>
+					</div>
 				</div>
-			</div>
+			</section>
 		</footer>
 
 		<script type="text/javascript" src="utils.js"></script>

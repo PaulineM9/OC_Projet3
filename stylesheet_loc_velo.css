@@ -446,6 +446,10 @@ html, body {
 	border-bottom: 4px solid rgb(131, 250, 131);
 }
 
+#infos_section {
+	display: flex;
+}
+
 .footer h1 {
 	font-family: 'Cabin Sketch', cursive, Arial, Verdana, Times New Roman, serif;
 	font-size: 3em;
@@ -454,14 +458,6 @@ html, body {
 	padding-top: 30px;
 	padding-bottom: 15px;
 	border-bottom: 4px dotted rgb(131, 250, 131);
-}
-
-.footer h2 {
-	font-family: 'Advent Pro', sans-serif, Arial, Verdana, Times New Roman, serif;
-	font-size: 1.5em;
-	color: rgb(239, 90, 36);
-	text-align: center;
-	padding-top: 30px;
 }
 
 #station_title {
@@ -494,6 +490,14 @@ html, body {
 	margin-top: 20px;
 	border-radius: 3px;
 	box-shadow: 6px 6px 6px lightgrey;
+}
+
+.footer h2 {
+	font-family: 'Advent Pro', sans-serif, Arial, Verdana, Times New Roman, serif;
+	font-size: 1.5em;
+	color: rgb(239, 90, 36);
+	text-align: center;
+	padding-top: 30px;
 }
 
 #confirm_stationName,
@@ -552,7 +556,7 @@ html, body {
 
 	.slide,
 	.search,
-	.map-container,
+	.map_container,
 	footer {
 		width: 235%;
 	}
