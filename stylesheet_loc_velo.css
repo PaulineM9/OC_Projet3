@@ -167,7 +167,7 @@ html, body {
 
 .slide p {
 	background-color: rgba(254, 254, 254, 0.7);
-	width: 700px;
+	width: 100%;
 	height: 150px;
 	font-family: 'Advent Pro', sans-serif, Arial, Verdana, Times New Roman, serif;
 	font-size: 1.5em;
@@ -473,7 +473,7 @@ html, body {
 	flex-direction: column;
 	text-align: center;
 	height: 200px;
-	width: 500px;
+	width: 100%;
 	margin-top: 20px;
 	border-radius: 3px;
 	box-shadow: 6px 6px 6px lightgrey;
@@ -485,7 +485,7 @@ html, body {
 	flex-direction: column;
 	text-align: center;
 	height: 200px;
-	width: 500px;
+	width: 100%;
 	margin-left: 175px;
 	margin-top: 20px;
 	border-radius: 3px;
@@ -534,7 +534,7 @@ html, body {
 }
 
 /* ---- RESPONSIVE DESIGN ---- */
-
+/*
 @media all and (max-width: 320px) {
 	body {
 		width: 100%;
@@ -568,4 +568,12 @@ html, body {
 	#search_line {
 		text-align: center;
 	}
-}
+
+	#station {
+		width: 65%;
+	}
+
+	#timer {
+		margin-left: 20px;
+	}
+}*/
