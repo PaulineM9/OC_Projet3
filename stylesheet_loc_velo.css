@@ -204,7 +204,8 @@ html, body {
 .map_container {
  	position: relative;
  	box-sizing: border-box;
- 	display: flex;
+	 display: flex;
+	flex-wrap: wrap;
  	justify-content: space-evenly;
  	padding-top: 25px;
  }
@@ -460,6 +461,11 @@ html, body {
 	border-bottom: 4px dotted rgb(131, 250, 131);
 }
 
+#infos_section {
+	display: flex;
+	flex-wrap: wrap;
+}
+
 #station_title {
 	display: flex;
 	flex-direction: row;
@@ -534,46 +540,65 @@ html, body {
 }
 
 /* ---- RESPONSIVE DESIGN ---- */
-/*
-@media all and (max-width: 320px) {
-	body {
-		width: 100%;
-	}
 
+@media all and (max-width: 320px) {
 	#title_header {
+		max-width: 345px;
 		display: flex;
 		flex-direction: column;
 	}
 
+	#title_header h1 {
+		font-size: 2em;
+	}
+
 	#title_header h2 {
-		padding-top: 0px;
-		padding-left: 110px;
-	}
-
-	.slide p {
-		width: 400px;
-	}
-
-	.slide,
-	.search,
-	.map_container,
-	footer {
-		width: 235%;
-	}
-
-	.navigation {
-		left: 185px;
-	}
-
-	#search_line {
+		padding-top: 8px;
 		text-align: center;
 	}
 
-	#station {
-		width: 65%;
+	.navigation {
+		top: 470px; 
 	}
 
-	#timer {
-		margin-left: 20px;
+	#search_line {
+		font-size: 2em;
+		padding-top: 20px;
+		text-align: center;
 	}
-}*/
+
+	#map {
+		width: 100%;
+		margin-left: 20px;
+		margin-bottom: 20px;
+	}
+
+	.map_container-infos {
+		width: 100%!important;
+		margin-left: 30px;
+	}
+
+	.footer h1 {
+		width: 345px;
+		font-size: 2em;
+	}
+
+	#station_data {
+		font-size: 0.8em;
+	}
+
+	#alert_marker {
+		left: 35px;
+	}
+
+	#resa_confirm {
+		left: 80px;
+	}
+
+	#station {
+		width: 693px;
+		margin: 20px 10px;
+	}
+
+
+}
