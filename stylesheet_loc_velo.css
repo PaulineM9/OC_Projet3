@@ -543,9 +543,10 @@ html, body {
 
 @media all and (max-width: 320px) {
 	#title_header {
-		max-width: 345px;
+		max-width: 320px;
 		display: flex;
 		flex-direction: column;
+		flex-wrap: wrap;
 	}
 
 	#title_header h1 {
@@ -555,6 +556,7 @@ html, body {
 	#title_header h2 {
 		padding-top: 8px;
 		text-align: center;
+		font-size: 1.2em;
 	}
 
 	.navigation {
@@ -568,23 +570,13 @@ html, body {
 	}
 
 	#map {
-		width: 100%;
-		margin-left: 20px;
+		width: 90%;
+		height: 300px;
 		margin-bottom: 20px;
 	}
 
 	.map_container-infos {
-		width: 100%!important;
-		margin-left: 30px;
-	}
-
-	.footer h1 {
-		width: 345px;
-		font-size: 2em;
-	}
-
-	#station_data {
-		font-size: 0.8em;
+		width: 90%!important;
 	}
 
 	#alert_marker {
@@ -592,13 +584,108 @@ html, body {
 	}
 
 	#resa_confirm {
-		left: 80px;
+		left: 70px;
 	}
 
-	#station {
-		width: 693px;
+	#station {	
+		width: 90%;
 		margin: 20px 10px;
 	}
 
+	#resa_signature {
+		display: flex;
+		flex-wrap: wrap;
+	}
+	
+	#signature {
+		padding-top: 100px;
+	}
 
+	#signature_resa {
+		width: 320px;
+		height: 600px;
+		margin: 20px 0px;
+	}
+
+	#perso_name {
+		margin-left: 0px;
+		border: 1px solid #737373;
+	}
+
+	#resa_station p {
+		padding-bottom: 20px;
+	}
+
+	#perso_firstname {
+		margin-left: -6px;
+		border: 1px solid #737373;
+	}
+
+	.resa_station {
+		padding-bottom: 70px;
+	}
+
+	#name_resa,
+	#address_resa {
+		font-size: 0.5em;
+	}
+
+	#name_resa {
+		left: 0px; 
+		top: -150px;
+	}
+
+	#address_resa {
+		left: 0px;
+		top: -77px;
+	}
+
+	#submit {
+		bottom: 20px;
+		left: 0px;
+		font-size: 0.8em;
+		width: 80px;
+		height: 30px;
+	}
+
+	#erase {
+		bottom: 30px;
+		left: 0px;
+		font-size: 0.8em;
+		width: 80px;
+		height: 30px;
+	}
+
+	#alert_name {
+		left: 145px;
+		top: 290px;
+	}
+
+	#resa_canvas {
+	width: 80%;
+	bottom: 30px;
+	}
+
+	.footer {
+		width: 320px;
+	}
+
+	.footer h1 {
+		width: 320px;
+		font-size: 2em;
+	}
+
+	#station_data {
+		font-size: 0.8em;
+	}
+
+	#station_title {
+		width: 320px;
+		flex-wrap: wrap;
+	}
+
+	#timer {
+		margin-left: 0px;
+		width: 90%;
+	}
 }
