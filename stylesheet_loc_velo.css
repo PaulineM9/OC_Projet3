@@ -94,7 +94,7 @@ html, body {
 		/* ---------- Slide_section --------- */
 #slide_section {
 	max-width: 100%;
-	padding-top: 130px;
+	padding-top: 150px;
 	padding-left: 20px;
 	padding-right: 20px;
 }
@@ -107,7 +107,6 @@ html, body {
 .slide {
 	position: absolute;
   	width: 100%;
-  	height: 100%;
   	opacity: 0;
 }
 
@@ -117,7 +116,7 @@ html, body {
 }
 
 #velov_lyon1 {
-	height: 540px;
+	height: 600px;
 	background: transparent url("images/velov_lyon1.jpg") no-repeat; 
 	background-size: cover;
 	box-shadow: 6px 6px 6px darkgrey;
@@ -125,7 +124,7 @@ html, body {
 }
 
 #velov_lyon2 {
-	height: 540px;
+	height: 600px;
 	background: transparent url("images/velov_lyon2.jpeg") no-repeat; 
 	background-size: cover;
 	box-shadow: 6px 6px 6px darkgrey;
@@ -133,7 +132,7 @@ html, body {
 }
 
 #velov_lyon3 {
-	height: 540px;
+	height: 600px;
 	background: transparent url("images/velov_lyon3.jpg") no-repeat; 
 	background-size: cover;
 	box-shadow: 6px 6px 6px darkgrey;
@@ -141,7 +140,7 @@ html, body {
 }
 
 #velov_lyon4 {
-	height: 540px;
+	height: 600px;
 	background: transparent url("images/velov_lyon4.jpg") no-repeat; 
 	background-size: cover;
 	box-shadow: 6px 6px 6px darkgrey;
@@ -167,7 +166,7 @@ html, body {
 
 .slide p {
 	background-color: rgba(254, 254, 254, 0.7);
-	width: 100%;
+	width: 60%;
 	height: 150px;
 	font-family: 'Advent Pro', sans-serif, Arial, Verdana, Times New Roman, serif;
 	font-size: 1.5em;
@@ -479,8 +478,9 @@ html, body {
 	flex-direction: column;
 	text-align: center;
 	height: 200px;
-	width: 100%;
+	width: 680px;
 	margin-top: 20px;
+	margin-left: 20px;
 	border-radius: 3px;
 	box-shadow: 6px 6px 6px lightgrey;
 }
@@ -491,8 +491,8 @@ html, body {
 	flex-direction: column;
 	text-align: center;
 	height: 200px;
-	width: 100%;
-	margin-left: 175px;
+	width: 680px;
+	margin-left: 40px;
 	margin-top: 20px;
 	border-radius: 3px;
 	box-shadow: 6px 6px 6px lightgrey;
@@ -543,24 +543,36 @@ html, body {
 
 @media all and (max-width: 320px) {
 	#title_header {
-		max-width: 320px;
+		max-width: 1420px;
 		display: flex;
 		flex-direction: column;
 		flex-wrap: wrap;
 	}
 
 	#title_header h1 {
-		font-size: 2em;
+		font-size: 2.5em;
 	}
 
 	#title_header h2 {
 		padding-top: 8px;
 		text-align: center;
 		font-size: 1.2em;
+		align-self: center;
+	}
+
+	.slide_wrapper {
+		max-width: 100%;
+	}
+
+	.slide p {
+		width: 280px;
+		font-size: 1em;
+		top: 425px;
 	}
 
 	.navigation {
-		top: 470px; 
+		top: 530px; 
+		left: 5px;
 	}
 
 	#search_line {
@@ -579,12 +591,20 @@ html, body {
 		width: 90%!important;
 	}
 
+	#station_data span {
+		width: 112%;
+	}
+
 	#alert_marker {
 		left: 35px;
 	}
 
 	#resa_confirm {
 		left: 70px;
+	}
+
+	#alert_nofreeBikes {
+		left: 31px; 
 	}
 
 	#station {	
@@ -661,10 +681,10 @@ html, body {
 		top: 290px;
 	}
 
-	#resa_canvas {
+	/*#resa_canvas {
 	width: 80%;
 	bottom: 30px;
-	}
+	}*/
 
 	.footer {
 		width: 320px;
@@ -689,3 +709,421 @@ html, body {
 		width: 90%;
 	}
 }
+
+@media all and (min-width: 321px) and (max-width: 375px) {
+	#title_header {
+		max-width: 1420px;
+		display: flex;
+		flex-direction: column;
+		flex-wrap: wrap;
+	}
+
+	#title_header h1 {
+		font-size: 2.5em;
+	}
+
+	#title_header h2 {
+		padding-top: 8px;
+		text-align: center;
+		font-size: 1.2em;
+		align-self: center;
+	}
+	.slide_wrapper {
+		max-width: 100%;
+	}
+
+	.slide p {
+		width: 280px;
+		font-size: 1em;
+		top: 425px;
+	}
+
+	.navigation {
+		top: 530px; 
+		left: 5px;
+	}
+
+	#search_line {
+		font-size: 2em;
+		padding-top: 20px;
+		text-align: center;
+	}
+
+	#map {
+		width: 90%;
+		height: 300px;
+		margin-bottom: 20px;
+	}
+
+	.map_container-infos {
+		width: 90%!important;
+	}
+
+	#station_data span {
+		width: 112%;
+	}
+
+	#alert_marker {
+		left: 35px;
+	}
+
+	#resa_confirm {
+		left: 95px;
+	}
+
+	#alert_nofreeBikes {
+		left: 31px; 
+	}
+
+	#station {	
+		width: 90%;
+		margin: 20px 10px;
+	}
+
+	#resa_signature {
+		display: flex;
+		flex-wrap: wrap;
+	}
+	
+	#signature {
+		padding-top: 100px;
+	}
+
+	#signature_resa {
+		width: 375px;
+		height: 600px;
+		margin: 20px 0px;
+	}
+
+	#perso_name {
+		margin-left: 0px;
+		border: 1px solid #737373;
+	}
+
+	#resa_station p {
+		padding-bottom: 20px;
+	}
+
+	#perso_firstname {
+		margin-left: -6px;
+		border: 1px solid #737373;
+	}
+
+	.resa_station {
+		padding-bottom: 70px;
+	}
+
+	#name_resa,
+	#address_resa {
+		font-size: 0.5em;
+	}
+
+	#name_resa {
+		left: 0px; 
+		top: -150px;
+	}
+
+	#address_resa {
+		left: 0px;
+		top: -77px;
+	}
+
+	#submit {
+		bottom: 20px;
+		left: 0px;
+		font-size: 0.8em;
+		width: 80px;
+		height: 30px;
+	}
+
+	#erase {
+		bottom: 30px;
+		left: 0px;
+		font-size: 0.8em;
+		width: 80px;
+		height: 30px;
+	}
+
+	#alert_name {
+		left: 145px;
+		top: 290px;
+	}
+
+	/*#resa_canvas {
+	width: 80%;
+	bottom: 30px;
+	}*/
+
+	.footer {
+		width: 375px;
+	}
+
+	.footer h1 {
+		width: 375px;
+		font-size: 2em;
+	}
+
+	#station_data {
+		font-size: 0.8em;
+	}
+
+	#station_title {
+		width: 375px;
+		flex-wrap: wrap;
+	}
+
+	#timer {
+		margin-left: 0px;
+		width: 90%;
+	}
+}
+
+@media all and (min-width: 376px) and (max-width: 425px) {
+	#title_header {
+		max-width: 1420px;
+		display: flex;
+		flex-direction: column;
+		flex-wrap: wrap;
+	}
+
+	#title_header h1 {
+		font-size: 2.5em;
+	}
+
+	#title_header h2 {
+		padding-top: 8px;
+		text-align: center;
+		font-size: 1.2em;
+		align-self: center;
+	}
+	.slide_wrapper {
+		max-width: 100%;
+	}
+
+	.slide p {
+		width: 280px;
+		font-size: 1em;
+		top: 425px;
+	}
+
+	.navigation {
+		top: 530px; 
+		left: 5px;
+	}
+
+	#search_line {
+		font-size: 2em;
+		padding-top: 20px;
+		text-align: center;
+	}
+
+	#map {
+		width: 90%;
+		height: 300px;
+		margin-bottom: 20px;
+	}
+
+	.map_container-infos {
+		width: 90%!important;
+	}
+
+	#station_data span {
+		width: 112%;
+	}
+
+	#alert_marker {
+		left: 50px;
+	}
+
+	#resa_confirm {
+		left: 120px;
+	}
+
+	#alert_nofreeBikes {
+		left: 45px; 
+	}
+
+	#station {	
+		width: 90%;
+		margin: 20px 10px;
+	}
+
+	#resa_signature {
+		display: flex;
+		flex-wrap: wrap;
+	}
+	
+	#signature {
+		padding-top: 100px;
+	}
+
+	#signature_resa {
+		width: 425px;
+		height: 600px;
+		margin: 20px 0px;
+	}
+
+	#perso_name {
+		margin-left: 0px;
+		border: 1px solid #737373;
+	}
+
+	#resa_station p {
+		padding-bottom: 20px;
+	}
+
+	#perso_firstname {
+		margin-left: -6px;
+		border: 1px solid #737373;
+	}
+
+	.resa_station {
+		padding-bottom: 70px;
+	}
+
+	#name_resa,
+	#address_resa {
+		font-size: 0.5em;
+	}
+
+	#name_resa {
+		left: 0px; 
+		top: -150px;
+	}
+
+	#address_resa {
+		left: 0px;
+		top: -77px;
+	}
+
+	#submit {
+		bottom: 20px;
+		left: 55px;
+		font-size: 0.8em;
+		width: 80px;
+		height: 30px;
+	}
+
+	#erase {
+		bottom: 30px;
+		left: 55px;
+		font-size: 0.8em;
+		width: 80px;
+		height: 30px;
+	}
+
+	#alert_name {
+		left: 215px;
+		top: 290px;
+	}
+
+	/*#resa_canvas {
+	width: 80%;
+	bottom: 30px;
+	}*/
+
+	.footer {
+		width: 425px;
+	}
+
+	.footer h1 {
+		width: 425px;
+		font-size: 2em;
+	}
+
+	#station_data {
+		font-size: 0.8em;
+	}
+
+	#station_title {
+		width: 425px;
+		flex-wrap: wrap;
+	}
+
+	#timer {
+		margin-left: 0px;
+		width: 90%;
+	}
+}
+
+@media all and (min-width: 426px) and (max-width: 768px) {
+	#title_header {
+		max-width: 100%;
+	}
+
+	.slide_wrapper {
+		width: 1380px; 
+	}	
+
+	.slide p {
+		width: 711px;
+	}
+
+	.navigation {
+		left: 336px;
+	}
+
+	#search_line {
+		width: 1420px;
+	}
+
+	.map_container {
+		width: 1420px;
+	}
+
+	#resa_confirm {
+		margin-left: 30px;
+	}
+
+	#perso_name, 
+	#perso_firstname {
+		border: 1px solid #737373;
+	}
+
+	footer {
+		width: 1420px;
+	}
+
+	#timer {
+		margin-left: 20px;
+	}
+}
+
+@media all and (min-width: 769px) and (max-width: 1024px) {
+	.slide_wrapper {
+		width: 1380px; 
+	}	
+
+	.navigation {
+		left: 215px;
+	}
+
+	#search_line,
+	footer {
+		width: 1420px;
+	}
+
+	.map_container {
+		width: 1420px;
+	}
+
+	#timer {
+		margin-left: 20px; 
+	}
+}
+
+@media all and (min-width: 2560px) {
+	footer {
+		width: 2560px;
+	}
+
+	#resa_confirm {
+		left: 400px;
+	}
+
+	#station,
+	#timer {
+		width: 1240px;
+	}
+}
+
