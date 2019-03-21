@@ -9,12 +9,14 @@ var Canvas = {
 		this.ctx = ctx;
 		this.canvas.addEventListener("mousedown", this.pointerDown.bind(this), false);
 		this.canvas.addEventListener("mouseup", this.pointerUp.bind(this), false);
+		this.canvas.addEventListener("touchend",this.touchUp.bind(this), false);
+		this.canvas.addEventListener("touchstart",this.touchDown.bind(this), false);
 		this.mouseX = -1;
 		this.mouseY = -1;
 		this.isPainting = false;
 	},
 	pointerDown: function(evt) {
-		console.log(this);
+		//console.log(this);
 		this.ctx.beginPath();
 		this.mouseX = (evt.offsetX === undefined) ? evt.layerX : evt.offsetX; //?: => conditions ternaires: c'dst un if - else caché: si ce qui est entre paranthèses est vrai on applique la première partie avant les : sinon on applique ce qui se trouve aprés les :
 		this.mouseY = (evt.offsetY === undefined) ? evt.layerY : evt.offsetY;
@@ -25,11 +27,31 @@ var Canvas = {
 	pointerUp: function(evt) {
 		this.isPainting = false;
 	},
+	touchDown: function(evt) {
+		this.ctx.beginPath();
+		var canvasCss = evt.target.getBoundingClientRect();
+		this.mouseX = evt.targetTouches[0].clientX - canvasCss.left;
+		this.mouseY = evt.targetTouches[0].clientY - canvasCss.top;
+	    this.ctx.moveTo(this.mouseX, this.mouseY);
+	    this.isPainting = true;
+	    this.canvas.addEventListener("touchmove", this.paint.bind(this), false);
+	},
+	touchUp: function(evt) {
+		this.isPainting = false;
+	},
 	paint: function(evt) {
 		if (this.isPainting == true) {
-			this.mouseX = (evt.offsetX === undefined) ? evt.layerX : evt.offsetX; //?: => conditions ternaires: c'dst un if - else caché: si ce qui est entre paranthèses est vrai on applique la première partie avant les : sinon on applique ce qui se trouve aprés les :
-			this.mouseY = (evt.offsetY === undefined) ? evt.layerY : evt.offsetY;
-	    	this.ctx.moveTo(this.mouseX, this.mouseY);
+			console.log(evt.layerX);
+			if (evt.layerX) { // calcul de la position pour un click
+				this.mouseX = (evt.offsetX === undefined) ? evt.layerX : evt.offsetX; //?: => conditions ternaires: c'dst un if - else caché: si ce qui est entre paranthèses est vrai on applique la première partie avant les : sinon on applique ce qui se trouve aprés les :
+				this.mouseY = (evt.offsetY === undefined) ? evt.layerY : evt.offsetY;
+			} else { // calcul de la position pour un touch
+				var canvasCss = evt.target.getBoundingClientRect();
+				this.mouseX = evt.targetTouches[0].clientX - canvasCss.left;
+				this.mouseY = evt.targetTouches[0].clientY - canvasCss.top;
+			}
+			console.log(this.mouseX, this.mouseY);			
+			this.ctx.lineTo(this.mouseX, this.mouseY);
 		    this.ctx.stroke();
 		}
 	},
