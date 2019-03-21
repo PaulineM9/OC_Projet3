@@ -9,12 +9,16 @@ var Canvas = {
 		this.ctx = ctx;
 		this.canvas.addEventListener("mousedown", this.pointerDown.bind(this), false);
 		this.canvas.addEventListener("mouseup", this.pointerUp.bind(this), false);
+		this.mouseX = -1;
+		this.mouseY = -1;
 		this.isPainting = false;
 	},
 	pointerDown: function(evt) {
 		console.log(this);
 		this.ctx.beginPath();
-	    this.ctx.moveTo(evt.offsetX, evt.offsetY);
+		this.mouseX = (evt.offsetX === undefined) ? evt.layerX : evt.offsetX; //?: => conditions ternaires: c'dst un if - else caché: si ce qui est entre paranthèses est vrai on applique la première partie avant les : sinon on applique ce qui se trouve aprés les :
+		this.mouseY = (evt.offsetY === undefined) ? evt.layerY : evt.offsetY;
+	    this.ctx.moveTo(this.mouseX, this.mouseY);
 	    this.isPainting = true;
 	    this.canvas.addEventListener("mousemove", this.paint.bind(this), false);
 	},
@@ -23,7 +27,9 @@ var Canvas = {
 	},
 	paint: function(evt) {
 		if (this.isPainting == true) {
-			this.ctx.lineTo(evt.offsetX, evt.offsetY);
+			this.mouseX = (evt.offsetX === undefined) ? evt.layerX : evt.offsetX; //?: => conditions ternaires: c'dst un if - else caché: si ce qui est entre paranthèses est vrai on applique la première partie avant les : sinon on applique ce qui se trouve aprés les :
+			this.mouseY = (evt.offsetY === undefined) ? evt.layerY : evt.offsetY;
+	    	this.ctx.moveTo(this.mouseX, this.mouseY);
 		    this.ctx.stroke();
 		}
 	},
