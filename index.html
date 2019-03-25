@@ -28,20 +28,21 @@
 
 	    	<!-- mapbox API -->
 	    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.46.0/mapbox-gl.js'></script>
-			<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.46.0/mapbox-gl.css' rel='stylesheet' />
+		<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.46.0/mapbox-gl.css' rel='stylesheet' />
 
 			<!-- Lealfet links -->
-			<link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
-  		integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
-  		crossorigin=""/>
-			<script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
-  		integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
-  		crossorigin=""></script>
-			<script	src="./Leaflet.markercluster-1.4.1/dist/leaflet.markercluster.js"></script>
-			<link rel="stylesheet" href="./Leaflet.markercluster-1.4.1/dist/MarkerCluster.css">
-			<link rel="stylesheet" href="./Leaflet.markercluster-1.4.1/dist/MarkerCluster.Default.css">
-			<link rel="stylesheet" href="./Leaflet.markercluster-1.4.1/dist/MarkerCluster.Default.ie.css">
-			
+		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
+		   integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+		   crossorigin=""/>
+		<script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"
+		   integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA=="
+		   crossorigin="">
+		</script>
+		<script	src="./Leaflet.markercluster-1.4.1/dist/leaflet.markercluster.js"></script>
+		<link rel="stylesheet" href="./Leaflet.markercluster-1.4.1/dist/MarkerCluster.css">
+		<link rel="stylesheet" href="./Leaflet.markercluster-1.4.1/dist/MarkerCluster.Default.css">
+		<link rel="stylesheet" href="./Leaflet.markercluster-1.4.1/dist/MarkerCluster.Default.ie.css">
+		
 		<style>
 		a {text-decoration:none;}
 		</style>
@@ -91,7 +92,7 @@
 		
 		<section class="map_container">
 			<div id="map"></div>
-			<div class="map_container-infos">
+			<section class="map_container-infos">
 				<div id="resa_form">
 					<h1>Détails de la station sélectionnée</h1>
 				</div>
@@ -112,7 +113,6 @@
 							<span id="station_freePlaces"></span>
 							<span id="station_freeBikes"></span>
 					</div>
-				</div>
 				
 				<div id="resa">
 					<button class="resa_confirm hidden" id="resa_confirm">Réserver</button>
@@ -153,7 +153,7 @@
 						</div>
 					</div>
 				</div>
-			</div>	
+			</section>	
 		</section>
 		
 		<footer class="footer">
@@ -178,6 +178,7 @@
 		</footer>
 
 		<script type="text/javascript" src="utils.js"></script>
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 		<script type="text/javascript" src="slider.js"></script>
 		<script type="text/javascript" src="mapbox.js"></script>
 		<script type="text/javascript" src="resa.js"></script>
