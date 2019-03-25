@@ -11,10 +11,8 @@ var MyMap = {
 			maxZoom: params.maxZoom,
 			id: 'mapbox.streets',
 			accessToken: params.accessToken,
-		}).addTo(this.currentMap); //this permet de définir à quel objet tu fais référence
+		}).addTo(this.currentMap); 
 
-		// on fait un appel GET sur l'api jcd et on passe en callback this.getStations
-		// pour fonctionner : on doit forcer le 'this' utilisé par this.getStations via `.bind(this)`
 		ajaxGet(params.urlApi, this.getStations.bind(this));
 	},
 
@@ -39,8 +37,6 @@ var MyMap = {
 				document.getElementById("address_resa").innerHTML = station.address;
 				document.getElementById("station_freePlaces").innerHTML = station.available_bike_stands;
 				document.getElementById("station_freeBikes").innerHTML = station.available_bikes;
-				// NOTE PRESENTATION: les éléments stockés ici devraient être stockés ds des variables ou des instances d'objet pr 
-				// éviter trop d'appel au DOM et ne pas ralentir la performance de mon site
 
 				// show the reservation input: condition if there is no click on a marker
 				if (document.getElementById("resa_confirm").classList.contains("hidden")) {
@@ -57,9 +53,6 @@ var MyMap = {
 				}
 			}
 		});
-
-		// console.log(markers);
-
 		self.currentMap.addLayer(markers);
 
 	}

@@ -5,8 +5,7 @@ function ajaxGet(url, callback) {
 	req.open("GET", url);
 	req.addEventListener("load", function () {
 		if (req.status >= 200 && req.status < 400) {
-			callback(req.responseText); // ex: fonction callback = getStations(list_stations)
-			//console.log(req.responseText);
+			callback(req.responseText); 
 		} else {
 			console.error(req.status + " " + req.statusText + " " + url);
 		}
@@ -44,7 +43,7 @@ function timer(duree) {
 	m = 0;
 	h = 0;
 	if (s < 0) {
-		timer_resa.innerHTML = "La durée de votre réservation a expiré." // remplacer par remove ('hidden') sur span html
+		timer_resa.innerHTML = "La durée de votre réservation a expiré." 
 		window.reset_resa.style.display = "none";
 	} else {
 		if (s > 59) {

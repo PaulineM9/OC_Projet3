@@ -18,7 +18,7 @@ var Slider = {
    */
   startAutoPlay: function () {
     var self = this;
-    this.intervalId = setInterval(function () { // arrow function à voir: permet de ne pas avoir à utiliser le self = this
+    this.intervalId = setInterval(function () { 
       if (self.slideActive >= self.slides.length - 1) {
         self.slideActive = -1;
       }
@@ -46,12 +46,12 @@ var Slider = {
    * next - animate the slider to the next slide
    */
   next: function () {
-    if (this.slideActive >= this.slides.length - 1) { // qd la ftn arrive à la dernière image donc que la ftn slideActive est au bout..
-      this.slideActive = -1; // ..la fonction reprend a l'image 1
+    if (this.slideActive >= this.slides.length - 1) { 
+      this.slideActive = -1; 
     }
-    qs('.active').classList.remove('active'); // la classe 'Active' est supprimée de la classe à laquelle elle était attribuée
-    this.slideActive++; // on passe à l'image suivante
-    this.slides[this.slideActive].classList.add('active'); // l'image suivante prend alors la classe 'Active'
+    qs('.active').classList.remove('active'); 
+    this.slideActive++; 
+    this.slides[this.slideActive].classList.add('active'); 
   },
 
   previous: function () {
