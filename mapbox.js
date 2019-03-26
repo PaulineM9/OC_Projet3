@@ -19,13 +19,14 @@ var MyMap = {
 	// JCDecaux function: real data from API JCDecaux, Json format
 	getStations: function (list_stations) {
 		var self = this;
-		var stations_status = document.getElementById("station_status").innerHTML
 		var station_mapping = JSON.parse(list_stations);
 		var markers = new L.MarkerClusterGroup();
 		
 		station_mapping.forEach(function (station) {
 			var marker = L.marker(station.position);
 			markers.addLayer(marker);
+		
+		//TODO: METTRE DE COULEURS POUR LA STATION FERMÉE ET STATION SANS VÉLOS
 
 			// informations about stations on 'click' on a marker into the first form
 			marker.addEventListener("click", afficherInfos);
