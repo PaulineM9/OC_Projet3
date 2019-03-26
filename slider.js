@@ -18,15 +18,15 @@ var Slider = {
    */
   startAutoPlay: function () {
     var self = this;
-    this.intervalId = setInterval(function () { 
+    this.intervalId = setInterval(function () {
       if (self.slideActive >= self.slides.length - 1) {
         self.slideActive = -1;
       }
       qs('.active').classList.remove('active');
       self.slideActive++;
       self.slides[self.slideActive].classList.add('active');
-      }, 5000);
-    },
+    }, 5000);
+  },
 
   /**
    * initControls - init all event listeners
@@ -39,19 +39,19 @@ var Slider = {
     this.playElt.addEventListener("click", this.playSlide.bind(this));
 
     // animation slider on keyboard
-    document.addEventListener("keydown", this.keyboard.bind(this)); 
+    document.addEventListener("keydown", this.keyboard.bind(this));
   },
 
   /**
    * next - animate the slider to the next slide
    */
   next: function () {
-    if (this.slideActive >= this.slides.length - 1) { 
-      this.slideActive = -1; 
+    if (this.slideActive >= this.slides.length - 1) {
+      this.slideActive = -1;
     }
-    qs('.active').classList.remove('active'); 
-    this.slideActive++; 
-    this.slides[this.slideActive].classList.add('active'); 
+    qs('.active').classList.remove('active');
+    this.slideActive++;
+    this.slides[this.slideActive].classList.add('active');
   },
 
   previous: function () {
@@ -84,7 +84,7 @@ var Slider = {
     if (e.keyCode === 37) {
       console.log("ok 37");
       this.previous();
-    } 
+    }
     else if (e.keyCode === 39) {
       console.log("ok 39");
       this.next();
