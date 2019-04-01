@@ -16,6 +16,7 @@ function ajaxGet(url, callback) {
 	req.send(null);
 };
 
+// functions for slider action
 function qsa(selector) {
 	return document.querySelectorAll(selector);
 };
@@ -33,6 +34,7 @@ function isStringValid(string) {
 	}
 }
 
+// function for timer action
 function timer(duree) {
 	console.log(duree);
 	if (window.timerId) { // reset the previous timer if running
@@ -68,6 +70,3 @@ function timer(duree) {
 		timer(duree);
 	}, 999);
 }
-
-
-

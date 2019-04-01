@@ -26,7 +26,13 @@ var MyMap = {
 			var marker = L.marker(station.position);
 			markers.addLayer(marker);
 
-			//TODO: METTRE DE COULEURS POUR LA STATION FERMÉE ET STATION SANS VÉLOS
+			// change color of the markers if no bike available or station closed
+			if (L.marker("status") === "CLOSED" || L.marker("available_bikes") === "0") {
+				console.log("ok marker"),
+				L.marker ({
+					color: 'red',
+				}).addTo(this.currentMap);
+			}
 
 			// informations about stations on 'click' on a marker into the first form
 			marker.addEventListener("click", afficherInfos);
